@@ -1,13 +1,12 @@
 package com.example.selenium.serenity.demo.steps;
 
-import static org.openqa.selenium.Keys.ENTER;
+import static com.example.selenium.serenity.demo.pageobject.webtablespage.WebTablesPage.FILLED_ROWS;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -18,7 +17,7 @@ import com.example.selenium.serenity.demo.config.UITestSpringConfig;
 import com.example.selenium.serenity.demo.pageobject.webtablespage.WebTableRow;
 import com.example.selenium.serenity.demo.pageobject.webtablespage.WebTablesPage;
 import com.github.javafaker.Faker;
-import net.thucydides.core.annotations.Steps;
+import net.serenitybdd.screenplay.Actor;
 
 @ContextConfiguration(classes = UITestSpringConfig.class)
 public class InputData {
@@ -33,9 +32,6 @@ public class InputData {
 
     private WebTablesPage webTablesPage;
 
-    @Steps
-    private ClickOn clickOn;
-
     @Autowired
     private Faker testDataGenerator;
 
@@ -43,33 +39,14 @@ public class InputData {
         inputFieldsAndValuesMap.clear();
     }
 
-    public void generateInputDataForNewWebTableRecord() {
+    public Map<String, String> generateInputDataForNewWebTableRecord() {
         inputFieldsAndValuesMap.put(FIRST_NAME, testDataGenerator.name().firstName());
         inputFieldsAndValuesMap.put(LAST_NAME, testDataGenerator.name().lastName());
         inputFieldsAndValuesMap.put(AGE, String.valueOf(testDataGenerator.number().numberBetween(1, 99)));
         inputFieldsAndValuesMap.put(EMAIL, testDataGenerator.internet().emailAddress());
         inputFieldsAndValuesMap.put(SALARY, String.valueOf(testDataGenerator.number().numberBetween(0, Integer.MAX_VALUE)));
         inputFieldsAndValuesMap.put(DEPARTMENT, testDataGenerator.lorem().characters(1, 20));
-    }
-
-    public void addTheInputDataToTheWebTableNumberOfTimes(final int numberOfTimesToAddRow) {
-        IntStream.range(0, numberOfTimesToAddRow).forEach(
-            occurrenceIndex -> {
-                clickOn.theAddNewRecordButton();
-                this.inputTheNewRowsOnTheWebTableForm();
-                clickOn.theSubmitButton();
-            }
-        );
-    }
-
-    public void inputTheNewRowsOnTheWebTableForm() {
-        inputFieldsAndValuesMap.forEach((key, value) -> webTablesPage.getInputFieldByName(key).sendKeys(value));
-    }
-
-    public void setPaginationToIndex(final String pageIndexToSet) {
-        final WebElement pageIndexInput = webTablesPage.getWebTablePagination().getPageJumpField();
-        pageIndexInput.sendKeys(pageIndexToSet);
-        pageIndexInput.sendKeys(ENTER);
+        return inputFieldsAndValuesMap;
     }
 
     public WebTableRow buildWebTableRowFromPreparedTestInput() {
@@ -83,8 +60,8 @@ public class InputData {
             .build();
     }
 
-    public List<WebTableRow> getRowsOfTheTableMatchingExpectedInput(final WebTableRow expectedRow) {
-        return webTablesPage.getFilledTableRows().stream()
+    public List<WebTableRow> getRowsOfTheTableMatchingExpectedInput2(final WebTableRow expectedRow, final Actor actor) {
+        return FILLED_ROWS.resolveAllFor(actor).stream()
             .map(
                 row -> WebTableRow.builder()
                     .firstName(getNthChildDivText(1).apply(row))

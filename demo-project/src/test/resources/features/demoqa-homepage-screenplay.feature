@@ -1,5 +1,4 @@
 @HomePage
-@test
 Feature: DemoQa home page test scenarios with Screenplay
   As a test automation engineer
   I want to test the DemoQa home page
@@ -11,7 +10,7 @@ Feature: DemoQa home page test scenarios with Screenplay
       And he should see that the header link is correct
       And he should see the certification training image
       And he should see that the join now link is correct
-      And he should see 67 category widgets on the page
+      And he should see 6 category widgets on the page
       And he should see the following category widgets in order:
         | Elements                |
         | Forms                   |
@@ -19,4 +18,4 @@ Feature: DemoQa home page test scenarios with Screenplay
         | Widgets                 |
         | Interactions            |
         | Book Store Application  |
-      And he should see that the footer should is visible and correct
+      And he should see that the footer is visible and correct

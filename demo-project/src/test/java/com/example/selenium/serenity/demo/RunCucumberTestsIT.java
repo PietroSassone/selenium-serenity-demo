@@ -10,7 +10,7 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
     features="src/test/resources/features",
-    glue = "com/example/selenium/serenity/demoa",
+    glue = "com/example/selenium/serenity/demo",
     plugin = "pretty"
 )
 @ContextConfiguration(classes = UITestSpringConfig.class)

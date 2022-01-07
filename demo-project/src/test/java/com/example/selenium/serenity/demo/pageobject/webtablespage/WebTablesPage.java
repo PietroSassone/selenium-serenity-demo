@@ -1,66 +1,29 @@
 package com.example.selenium.serenity.demo.pageobject.webtablespage;
 
-import java.util.List;
 import java.util.Map;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
-import lombok.Getter;
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.core.pages.WebElementFacade;
+import net.serenitybdd.screenplay.targets.Target;
 import net.thucydides.core.annotations.DefaultUrl;
 
-@Getter
 @DefaultUrl("https://demoqa.com/webtables")
 public class WebTablesPage extends PageObject {
+    public static final String ADD_NEW_RECORD_BUTTON_SELECTOR = "#addNewRecordButton";
+    public static final String SUBMIT_BUTTON_SELECTOR = "#submit";
+    public static final Target FILLED_ROWS = Target.the("filled table rows").locatedBy("//div[@class='rt-tr-group']/div[div[1][text()]]");
+    public static final String RESULTS_PER_PAGE_DROPDOWN_SELECTOR = ".-pageSizeOptions select";
+    public static final Target TOTAL_NUMBER_OF_PAGES = Target.the("total number of pages").locatedBy(".-totalPages");
+    public static final Target PAGE_SELECT_FIELD = Target.the("page select field").locatedBy(".-pageJump input");
+    public static final Target PREVIOUS_PAGE_BUTTON = Target.the("previous page pagination button").locatedBy(".-previous button");
+    public static final Target NEXT_PAGE_BUTTON = Target.the("next page pagination button").locatedBy(".-next button");
 
-    private static final String FIRST_NAME = "firstName";
-    private static final String LAST_NAME = "lastName";
-    private static final String EMAIL = "email";
-    private static final String AGE = "age";
-    private static final String SALARY = "salary";
-    private static final String DEPARTMENT = "department";
+    public static final Map<String, String> INPUT_FIELD_SELECTORS_MAP = Map.of(
+        "firstName", "#firstName",
+        "lastName", "#lastName",
+        "email", "#userEmail",
+        "age", "#age",
+        "salary", "#salary",
+        "department", "#department"
+    );
 
-    @FindBy(id = "addNewRecordButton")
-    private WebElementFacade addNewRecordButton;
-
-    @FindBy(id = "firstName")
-    private WebElementFacade firstNameInput;
-
-    @FindBy(id = "lastName")
-    private WebElementFacade lastNameInput;
-
-    @FindBy(id = "userEmail")
-    private WebElementFacade emailInput;
-
-    @FindBy(id = "age")
-    private WebElementFacade ageInput;
-
-    @FindBy(id = "salary")
-    private WebElementFacade salaryInput;
-
-    @FindBy(id = "department")
-    private WebElementFacade departmentInput;
-
-    @FindBy(id = "submit")
-    private WebElementFacade submitButton;
-
-    @FindBy(xpath = "//div[@class='rt-tr-group']/div[div[1][text()]]")
-    private List<WebElementFacade> filledTableRows;
-    public static final String FILLED_TABLE_ROWS_SELECTOR = "//div[@class='rt-tr-group']/div[div[1][text()]]";
-
-    private WebTablePagination webTablePagination;
-
-    public WebElement getInputFieldByName(final String fieldName) {
-        final Map<String, WebElementFacade> inputFieldsMap = Map.of(
-            FIRST_NAME, firstNameInput,
-            LAST_NAME, lastNameInput,
-            EMAIL, emailInput,
-            AGE, ageInput,
-            SALARY, salaryInput,
-            DEPARTMENT, departmentInput
-        );
-        return inputFieldsMap.get(fieldName);
-    }
 }
