@@ -32,7 +32,6 @@
               <rerunFailingTestsCount>${rerun.tests.count}</rerunFailingTestsCount>
               <systemPropertyVariables>
                 <headless.mode>${headless}</headless.mode>
-                <cucumber.filter.tags>${cucumber.filter.tags}</cucumber.filter.tags>
               </systemPropertyVariables>
             </configuration>
           </execution>

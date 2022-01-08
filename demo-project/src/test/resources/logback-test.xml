@@ -9,12 +9,20 @@
         </encoder>
     </appender>
 
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>target/logs/serenity-selenium-demo.log</file>
+        <encoder>
+            <pattern>%date %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
     <logger name="root" level="DEBUG"/>
     <logger name="net.serenitybdd" level="INFO"/>
     <logger name="net.thucydides" level="INFO"/>
 
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
     </root>
 
 </configuration>

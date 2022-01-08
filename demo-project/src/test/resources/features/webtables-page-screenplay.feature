@@ -1,4 +1,4 @@
-@WebTablesPage @test
+@WebTablesPage
 Feature: DemoQa Web Tables page test scenarios with Screenplay
   As a test automation engineer
   I want to test the DemoQa Web Tables page
