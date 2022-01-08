@@ -81,6 +81,7 @@
      ```
      mvn clean verify
      ```
+     
  Supported arguments in the browsermob-plugin-example module:  
  The [parameters](https://serenity-bdd.github.io/theserenitybook/latest/serenity-system-properties.html) supported by Serenity out of the box.
  Plus the same as rerun.tests.count in the table below.  
