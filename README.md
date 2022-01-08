@@ -45,25 +45,25 @@
  - Capturing HTTP web traffic
  - Emulating mobile browsers for testing
  
- **4. about the modules**
- The project contains 2 modules.
- The first is named browsermob-plugin-example. 
-     This one has:
-     - demonstration of using the Serenity Browsermob plugin
-     - this module can't run tests in parallel due to issues with port binding with the Browsermob plugin
-     - only supports Chrome out of the box, because of the proxy + chrome options set in the serenity config file
-     - page objects with Serenity's WebElementFacade instead of Selenium WebElements
-     - Serenity @Steps 
+ **4. about the modules**  
+ The project contains 2 modules.  
+ The first is named browsermob-plugin-example.   
+     This one has:  
+     - demonstration of using the Serenity Browsermob plugin  
+     - this module can't run tests in parallel due to issues with port binding with the Browsermob plugin  
+     - only supports Chrome out of the box, because of the proxy + chrome options set in the serenity config file  
+     - page objects with Serenity's WebElementFacade instead of Selenium WebElements  
+     - Serenity @Steps  
  
- The second is named demo-project. 
-     This one has:
-     - demonstration of using the Serenity Screenplay with Actors
-     - support for parallel runs
-     - support for mobile device emulation for Chromium based browsers via custom Serenity driver provider
-     - Serenity @Steps 
+ The second is named demo-project.
+     This one has:  
+     - demonstration of using the Serenity Screenplay with Actors  
+     - support for parallel runs  
+     - support for mobile device emulation for Chromium based browsers via custom Serenity driver provider  
+     - Serenity @Steps
  
- **5. Reporting and logging**
- - The framework saves reports and logs in the target folder after a test run finishes.
+ **5. Reporting and logging**  
+ The framework saves reports and logs in the target folder after a test run finishes.
  1. Logs are saved in target/logs inside both modules
  1. Detailed Serenity reports are generated with screenshots in failed scenarios. Saved in both separate module's target/site/serenity.
  1. HTTP Archive is also saved in target/webtraffic for each scenario. Only in the browsermob-plugin-example module.
@@ -76,16 +76,16 @@
  - Have Java installed, at lest version 11.
  - Have the latest version of the browser installed that you want to run the tests with.
  
- **6. Launching the tests**
- Open a terminal in one of the modules and type to run all tests:
+ **7. Launching the tests**  
+ Open a terminal in one of the modules and type to run all tests:  
      ```
      mvn clean verify
      ```
- Supported arguments in the browsermob-plugin-example module:
+ Supported arguments in the browsermob-plugin-example module:  
  The [parameters](https://serenity-bdd.github.io/theserenitybook/latest/serenity-system-properties.html) supported by Serenity out of the box.
- 
- Supported arguments in the demo/project module:
- The [parameters](https://serenity-bdd.github.io/theserenitybook/latest/serenity-system-properties.html) supported by Serenity out of the box.
+ Plus the same as rerun.tests.count in the table below.  
+ Supported arguments in the demo/project module:  
+ The [parameters](https://serenity-bdd.github.io/theserenitybook/latest/serenity-system-properties.html) supported by Serenity out of the box.  
  Plus:
  | argument name                                                 | supported values             | default value      | description                                                |
  | ------------------------------------------------------------- | ---------------------------- | ------------------ | ---------------------------------------------------------- |
@@ -105,26 +105,27 @@
  - When supplying the '-DplatformToSet' param, the value must be the exact same as the JSON file's name.
  Minus the .json extension.
  
- Setting which tests should be run based on cucumber tags can be done via the ```-Dcucumber.filter.tags option```.
+ Setting which tests should be run based on cucumber tags can be done via the ```-Dcucumber.filter.tags``` option.  
  
- *Commands to run tests from a terminal opened in the browsermob-plugin-example module:*
- Example command to run the tests with default browser settings (chrome) for only the Web Table page:
+ *Commands to run tests from a terminal opened in the browsermob-plugin-example module:*    
+ Example command to run the tests with default browser settings (chrome) for only the Web Table page:  
      ```
      mvn clean verify -Dcucumber.filter.tags=@WebTablesPage
      ```
- *Commands to run tests from a terminal opened in the demo-project module:*
- Example command to run the tests with MS Edge Driver in headless mode:
+     
+ *Commands to run tests from a terminal opened in the demo-project module:*    
+ Example command to run the tests with MS Edge Driver in headless mode:  
      ```
      mvn clean verify -Dwebdriver.driver=edge -Dheadless=true
      ```
  
- For mobile emulation, we have to set the provided driver as well. See below.
- Example command to run the tests with MS Edge Driver while emulating the Nexus 7 tablet browser:
+ For mobile emulation, we have to set the provided driver as well. See below.  
+ Example command to run the tests with MS Edge Driver while emulating the Nexus 7 tablet browser:  
      ```
      mvn clean verify -DplatformToSet=nexus7 -Dwebdriver.driver=provided -Dprovided.driver=edge 
      ```
     
-Example command to run the tests with MS Edge Driver while emulating the iPhoneX tablet browser:
+Example command to run the tests with MS Edge Driver while emulating the iPhoneX tablet browser:  
      ```
      mvn clean verify -DplatformToSet=iPhoneX -Dwebdriver.driver=provided 
      ```
