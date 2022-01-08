@@ -76,8 +76,8 @@
  - Have Java installed, at lest version 11.
  - Have the latest version of the browser installed that you want to run the tests with.
  
- **7. Launching the tests**  
- Open a terminal in one of the modules and type to run all tests:  
+ **7. Launching the tests**    
+ Open a terminal in one of the modules and type to run all tests:    
      ```
      mvn clean verify
      ```
