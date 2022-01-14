@@ -70,6 +70,11 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>net.serenity-bdd</groupId>
+      <artifactId>serenity-browserstack</artifactId>
+      <version>${serenity.version}</version>
+    </dependency>
+    <dependency>
       <groupId>com.github.javafaker</groupId>
       <artifactId>javafaker</artifactId>
       <version>${faker.version}</version>

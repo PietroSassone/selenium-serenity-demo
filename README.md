@@ -129,4 +129,24 @@
 Example command to run the tests with MS Edge Driver while emulating the iPhoneX tablet browser:  
      ```
      mvn clean verify -DplatformToSet=iPhoneX -Dwebdriver.driver=provided 
-     ```
+     ``` 
+        
+**8. About BrowserStack**   
+Serenity supports BrowserStack out of the box when the Serenity-BrowserStack Maven dependency is added to the project.
+I have added to the demo-project module.  
+
+Some sample configs for BrowserStack are added to the module's serenity.conf file.  
+
+Setting the OS, browser, or device platforms can be done via the parameters described in [Serenity's documentation](https://serenity-bdd.github.io/theserenitybook/latest/remote.html#_running_serenity_tests_on_browserstack).  
+The values to set for these parameters can be found in the [BrowserStack capability generator](https://www.browserstack.com/docs/onboarding/java/getting-started#run-sample-build).  
+
+For using it, first uncomment/provide the basic BrowserStack properties in the mentioned serenity.conf file.  
+Example command for BrowserStack on the latest Edge, on Windows 11:  
+    ```
+     mvn clean verify -Dbrowserstack.browser=edge -Dbrowserstack.browser_version=latest -Dbrowserstack.os=windows -Dbrowserstac.os_version=11
+     ```  
+
+Example command for BrowserStack on the Google Pixel 6, on Android 12.0:    
+    ```
+     mvn clean verify "-Dbrowserstack.device=Google Pixel 6" -Dbrowserstack.os_version=12.0 
+     ```  
