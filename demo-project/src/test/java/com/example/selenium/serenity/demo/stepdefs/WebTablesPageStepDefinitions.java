@@ -155,7 +155,7 @@ public class WebTablesPageStepDefinitions {
     public void actorShouldSeeNewRowPresent(final String testUserName, final int expectedNumberOfNewRows) {
         final WebTableRow expectedRow = inputData.buildWebTableRowFromPreparedTestInput();
 
-        final List<WebTableRow> matchingWebTableRows = inputData.getRowsOfTheTableMatchingExpectedInput2(expectedRow, theActorCalled(testUserName));
+        final List<WebTableRow> matchingWebTableRows = inputData.getRowsOfTheTableMatchingExpectedInput(expectedRow, theActorCalled(testUserName));
 
         theActorCalled(testUserName).attemptsTo(Ensure.that(matchingWebTableRows).hasSize(expectedNumberOfNewRows));
     }
