@@ -14,12 +14,13 @@ public class ScrollTo {
 
     @Step
     public void theDeleteButton(final int indexOfDeleteButton) {
-        moveToElementWithJs(webTablesPage.getDeleteButtons().get(indexOfDeleteButton -1));
+        moveToElementWithJs(webTablesPage.getDeleteButtons().get(indexOfDeleteButton - 1));
     }
 
     /**
      * Scrolling to a given web element. In case of some web elements, the regular scrolling doesn't work.
      * Especially useful for firefox.
+     * @param webElement the element to scroll to.
      */
     public void moveToElementWithJs(final WebElement webElement) {
         ((JavascriptExecutor) webTablesPage.getDriver()).executeScript(SCROLL_INTO_VIEW_SCRIPT, webElement);

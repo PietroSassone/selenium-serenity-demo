@@ -4,5 +4,5 @@
     <suppress checks="LineLength" files=".*.java" />
     <suppress checks="DesignForExtension" files=".*.java" />
     <suppress checks="HiddenField" files=".*PageObject.java" />
-    <suppress checks="RedundantModifier" files="Application.java" />
+    <suppress checks="MagicNumber" files="InputData.java" />
 </suppressions>
