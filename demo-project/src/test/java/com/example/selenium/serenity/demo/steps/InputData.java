@@ -60,7 +60,7 @@ public class InputData {
             .build();
     }
 
-    public List<WebTableRow> getRowsOfTheTableMatchingExpectedInput2(final WebTableRow expectedRow, final Actor actor) {
+    public List<WebTableRow> getRowsOfTheTableMatchingExpectedInput(final WebTableRow expectedRow, final Actor actor) {
         return FILLED_ROWS.resolveAllFor(actor).stream()
             .map(
                 row -> WebTableRow.builder()
