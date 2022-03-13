@@ -73,7 +73,7 @@
  
  **6. Pre-requirements for running the tests**
  - Have Maven installed.
- - Have Java installed, at lest version 11.
+ - Have Java installed, at least version 11.
  - Have the latest version of the browser installed that you want to run the tests with.
  
  **7. Launching the tests**    
