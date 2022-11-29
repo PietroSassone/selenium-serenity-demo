@@ -96,7 +96,7 @@
  The framework supports the browsers supported by Serenity for testing.
  
  *Notes about the mobile device emulation in the demo-project module:* 
- - For Cromium  browsers: Edge & Chrome, you can use platformToSet as described in the table above. It was implemented by me. Both in headless and standard mode.
+ - For Chromium  browsers: Edge & Chrome, you can use platformToSet as described in the table above. It was implemented by me. Both in headless and standard mode.
  - Currently, the framework only runs tests in other browsers, like Firefox on Desktop platform.
  - At the moment, desktop, iPhone X and Nexus 7 tablet views are added to the framework for demo purposes.
  - New platforms for Edge tests can be added by creating a JSON config file in the "test/resources/browserplatform" directory.
